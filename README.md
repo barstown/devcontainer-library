@@ -45,3 +45,10 @@ as installing additional packages through a package manager. To facilitate
 this, `postCreateCommand.sh` looks for the variable "REQUIRES_SUDO=true" in the
 child scripts. When present the script will be ran as `sudo [script.sh]`, and
 when absent it will run as the vscode user directly.
+
+## Scripts
+
+The [scripts](scripts) directory contains reusable bash scripts intended for use
+in the [.devcontainer/scripts](.devcontainer/scripts) directory of a project.
+These are largely for personal use, but by making this public I hope that at
+least a few people find this a little bit helpful.
