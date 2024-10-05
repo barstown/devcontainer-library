@@ -11,9 +11,9 @@ share and reuse container setup steps through
 [Features](https://containers.dev/features) and
 [Templates](https://containers.dev/templates).
 
-Save a substantial amount of time by simply sharing a devcontainer.json file and
-know that a friend or peer will have a defined and reproducible
-environment, in it's simplest form.
+Save a substantial amount of time by simply sharing a
+[devcontainer.json](devcontainer.json) file and know that a friend or peer will
+have a defined and reproducible environment, in it's simplest form.
 
 ## The problem
 
