@@ -1,0 +1,19 @@
+---
+# Woke configuration file
+ignore_files:
+  - .editorconfig
+  - .github/**
+  - .vscode/**
+
+rules:
+  # Default rule set
+  # https://raw.githubusercontent.com/get-woke/woke/main/pkg/rule/default.yaml
+
+  # Custom rule set
+  - name: master
+    terms:
+      - master
+    alternatives:
+      - main
+      - primary
+      - leader

@@ -1,0 +1,25 @@
+---
+name: Pull Request Labeler
+on:
+  pull_request_target:
+    types:
+      - assigned
+      - edited
+      - labeled
+      - opened
+      - reopened
+      - synchronize
+      - unlabeled
+
+jobs:
+  labeler:
+    runs-on: ubuntu-latest
+    if: github.repository == 'barstown/devcontainer-base'
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Add labels to pull request
+        uses: actions/labeler@v5
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"

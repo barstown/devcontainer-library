@@ -1,0 +1,62 @@
+{
+  "name": "${PROJECT_NAME}-devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker": "latest",
+    // Common-utils Feature applied to base:ubuntu-24.04 already, augmenting
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true
+    },
+    // Python Feature can be used to add pipx packages
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": true,
+      "toolsToInstall": "ansible-core<2.16,ansible-lint,ansible-navigator,vale,cookiecutter,aar-doc,"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "chrischinchilla.vale-vscode",
+        "codecontemplator.kubeseal", // when Kubernetes tools are installed
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "felipecaputo.git-project-manager",
+        "github.copilot-chat",
+        "github.copilot",
+        "github.vscode-github-actions",
+        "gruntfuggly.todo-tree",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools", // when Kubernetes tools are installed
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "redhat.ansible", // when Ansible tools are installed
+        "redhat.vscode-yaml",
+        "technosophos.vscode-helm", // when Kubernetes tools are installed
+        "vscode-icons-team.vscode-icons",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        // "kubeseal.executablePath": "/usr/local/bin/kubeseal",
+        "ansible.ansible.path": "/usr/local/py-utils/bin/ansible",
+        "ansible.ansibleNavigator.path": "/usr/local/py-utils/bin/ansible-navigator",
+        "ansible.python.interpreterPath": "/usr/local/python/current/bin/python",
+        "ansible.validation.lint.path": "/usr/local/py-utils/bin/ansible-lint",
+        "editor.rulers": [
+          80,
+          160
+        ],
+        "workbench.iconTheme": "vscode-icons"
+      }
+    }
+  },
+  "postCreateCommand": "chmod +x ${PROJECT_HOME}/.devcontainer/postCreateCommand.sh && ${PROJECT_HOME}/.devcontainer/postCreateCommand.sh",
+  "remoteEnv": {
+    "HOST_HOME": "${localEnv:HOME}",
+    "PROJECT_HOME": "${containerWorkspaceFolder}"
+  },
+  "mounts": [
+    // "source=${localEnv:HOME},target=/home/vscode/host-home,type=bind,readonly",
+    "source=${localEnv:HOME},target=${localEnv:HOME},type=bind,readonly"
+  ]
+}

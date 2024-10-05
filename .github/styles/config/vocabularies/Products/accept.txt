@@ -1,0 +1,12 @@
+(?i)Devcontainer
+(?i)EditorConfig
+(?i)git
+(?i)Todo
+(?i)VSCode
+[Aa]nsible
+Active Directory
+GitHub
+Jinja
+Kerberos
+Markdown
+Todo Tree
