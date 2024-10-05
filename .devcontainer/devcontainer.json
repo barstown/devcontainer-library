@@ -1,5 +1,5 @@
 {
-  "name": "devcontainer-base",
+  "name": "devcontainer-library",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker": "latest",

@@ -14,7 +14,7 @@ on:
 jobs:
   labeler:
     runs-on: ubuntu-latest
-    if: github.repository == 'barstown/devcontainer-base'
+    if: github.repository == 'barstown/devcontainer-library'
     permissions:
       contents: read
       pull-requests: write
