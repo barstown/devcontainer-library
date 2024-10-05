@@ -1,0 +1,30 @@
+---
+devcontainer:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .devcontainer/*
+
+postCreateCommand:
+  - changed-files:
+      - any-glob-to-any-file:
+          - postCreateCommand.sh
+
+scripts:
+  - changed-files:
+      - any-glob-to-any-file:
+          - scripts/**
+
+actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/workflows/*.yml
+
+dotfiles:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .*
+
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - README.md
