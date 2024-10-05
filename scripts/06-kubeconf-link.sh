@@ -15,3 +15,5 @@ if [ -f "$KUBECONF_SRC" ]; then
 else
     echo "Source directory $KUBECONF_SRC does not exist. Skipping symlink creation."
 fi
+
+echo "TEST"

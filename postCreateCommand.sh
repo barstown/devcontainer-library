@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# TEST
 # Define the directory
 SCRIPT_DIR="$PROJECT_HOME/.devcontainer/scripts"
 

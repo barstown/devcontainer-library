@@ -45,3 +45,5 @@ as installing additional packages through a package manager. To facilitate
 this, `postCreateCommand.sh` looks for the variable "REQUIRES_SUDO=true" in the
 child scripts. When present the script will be ran as `sudo [script.sh]`, and
 when absent it will run as the vscode user directly.
+
+TEST
