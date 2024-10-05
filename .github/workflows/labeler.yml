@@ -14,7 +14,7 @@ on:
 jobs:
   labeler:
     runs-on: ubuntu-latest
-    if: github.repository == 'barstown/ansible-collection-server_baseline'
+    if: github.repository == 'barstown/devcontainer-base'
     permissions:
       contents: read
       pull-requests: write
