@@ -2,7 +2,7 @@
 devcontainer:
   - changed-files:
       - any-glob-to-any-file:
-          - .devcontainer/*
+          - .devcontainer/**
 
 postCreateCommand:
   - changed-files:
