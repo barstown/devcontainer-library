@@ -18,7 +18,6 @@
       "extensions": [
         "chrischinchilla.vale-vscode",
         "codecontemplator.kubeseal", // when Kubernetes tools are installed
-        "eamodio.gitlens",
         "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
         "felipecaputo.git-project-manager",
@@ -37,16 +36,28 @@
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
-        // "kubeseal.executablePath": "/usr/local/bin/kubeseal",
         "ansible.ansible.path": "/usr/local/py-utils/bin/ansible",
         "ansible.ansibleNavigator.path": "/usr/local/py-utils/bin/ansible-navigator",
         "ansible.python.interpreterPath": "/usr/local/python/current/bin/python",
         "ansible.validation.lint.path": "/usr/local/py-utils/bin/ansible-lint",
+        "files.trimFinalNewlines": true,
+        "git.autofetch": true,
+        "git.blame.editorDecoration.enabled": true,
+        "git.blame.editorDecoration.template": "${authorName} (${authorDateAgo}) ${subject}",
+        "git.confirmSync": false,
+        "redhat.telemetry.enabled": false,
+        "telemetry.feedback.enabled": false,
+        "telemetry.telemetryLevel": "off",
+        "vale.enableSpellcheck": true,
+        "vscode.env.isTelemetryEnabled": false,
+        "workbench.iconTheme": "vscode-icons",
         "editor.rulers": [
           80,
           160
         ],
-        "workbench.iconTheme": "vscode-icons"
+        "yaml.customTags": [
+          "!vault scalar"
+        ]
       }
     }
   },
