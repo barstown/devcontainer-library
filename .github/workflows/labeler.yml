@@ -20,6 +20,6 @@ jobs:
       pull-requests: write
     steps:
       - name: Add labels to pull request
-        uses: actions/labeler@v5
+        uses: actions/labeler@v6
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
