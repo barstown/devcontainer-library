@@ -2,6 +2,14 @@
 
 # Define the directory
 SCRIPT_DIR="$PROJECT_HOME/.devcontainer/scripts"
+VENV_ACTIVATE="$PROJECT_HOME/.venv/bin/activate"
+
+activate_venv() {
+    if [[ -f "$VENV_ACTIVATE" ]]; then
+        # shellcheck disable=SC1090
+        source "$VENV_ACTIVATE"
+    fi
+}
 
 echo $SCRIPT_DIR
 
@@ -11,6 +19,7 @@ if [[ -d "$SCRIPT_DIR" ]]; then
     for script in "$SCRIPT_DIR"/*.sh; do
         # Check if the file exists
         if [[ -f "$script" ]]; then
+            activate_venv
             # Make the script executable
             chmod +x "$script"
 
@@ -26,4 +35,5 @@ if [[ -d "$SCRIPT_DIR" ]]; then
     done
 else
     echo "Directory $SCRIPT_DIR does not exist."
+    activate_venv
 fi

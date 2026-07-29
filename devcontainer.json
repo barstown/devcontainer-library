@@ -1,63 +1,109 @@
 {
   "name": "${PROJECT_NAME}-devcontainer",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu26.04",
   "features": {
-    "ghcr.io/devcontainers/features/docker-outside-of-docker": "latest",
-    // Common-utils Feature applied to base:ubuntu-24.04 already, augmenting
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false
+    },
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true
     },
-    // Python Feature can be used to add pipx packages
-    "ghcr.io/devcontainers/features/python:1": {
-      "installTools": true,
-      "toolsToInstall": "ansible-core<2.16,ansible-lint,ansible-navigator,vale,cookiecutter,aar-doc,"
-    }
+    "ghcr.io/devcontainers-extra/features/mise:1": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "chrischinchilla.vale-vscode",
+        "blueglassblock.better-json5",
         "codecontemplator.kubeseal", // when Kubernetes tools are installed
+        "davidanson.vscode-markdownlint",
+        "dnut.rewrap-revived",
         "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
-        "felipecaputo.git-project-manager",
-        "github.copilot-chat",
-        "github.copilot",
-        "github.vscode-github-actions",
-        "gruntfuggly.todo-tree",
+        "fanaticpythoner.better-todo-tree",
         "ms-azuretools.vscode-docker",
         "ms-kubernetes-tools.vscode-kubernetes-tools", // when Kubernetes tools are installed
-        "ms-vscode-remote.remote-containers",
+        "ms-python.python",
+        "ms-python.vscode-python-envs",
         "ms-vscode-remote.vscode-remote-extensionpack",
-        "redhat.ansible", // when Ansible tools are installed
+        "redhat.ansible",
         "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries",
+        "tamasfe.even-better-toml",
         "technosophos.vscode-helm", // when Kubernetes tools are installed
         "vscode-icons-team.vscode-icons",
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
-        "ansible.ansible.path": "/usr/local/py-utils/bin/ansible",
-        "ansible.ansibleNavigator.path": "/usr/local/py-utils/bin/ansible-navigator",
-        "ansible.python.interpreterPath": "/usr/local/python/current/bin/python",
-        "ansible.validation.lint.path": "/usr/local/py-utils/bin/ansible-lint",
+        "ansible.ansible.path": "${containerWorkspaceFolder}/.venv/bin/ansible",
+        "ansible.ansibleNavigator.path": "${containerWorkspaceFolder}/.venv/bin/ansible-navigator",
+        "ansible.python.activationScript": "${containerWorkspaceFolder}/.venv/bin/activate",
+        "ansible.python.interpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",
+        "ansible.validation.lint.path": "${containerWorkspaceFolder}/.venv/bin/ansible-lint",
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",
+        "[ansible]": {
+          "editor.defaultFormatter": "redhat.vscode-yaml",
+          "editor.formatOnSave": true
+        },
+        "[github-actions-workflow]": {
+          "editor.defaultFormatter": "redhat.vscode-yaml",
+          "editor.formatOnSave": true
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true
+        },
+        "[json5]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true
+        },
+        "[jsonc]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+          "editor.formatOnSave": true,
+          "editor.rulers": [80, 120],
+          "rewrap.autoWrap.enabled": true
+        },
+        "[yaml]": {
+          "editor.defaultFormatter": "redhat.vscode-yaml",
+          "editor.formatOnSave": true
+        },
+        "better-todo-tree.filtering.excludeGlobs": [
+          "**/docs/*/**",
+          "**/collections/ansible_collections/*/**",
+          "**/*.md"
+        ],
+        "better-todo-tree.general.tags": [
+          "AUDIT",
+          "BUG",
+          "FIXME",
+          "HACK",
+          "TODO"
+        ],
+        "better-todo-tree.highlights.customHighlight": {
+          "AUDIT": {
+            "icon": "search"
+          }
+        },
+        "editor.rulers": [80, 160],
         "files.trimFinalNewlines": true,
         "git.autofetch": true,
         "git.blame.editorDecoration.enabled": true,
         "git.blame.editorDecoration.template": "${authorName} (${authorDateAgo}) ${subject}",
         "git.confirmSync": false,
+        "markdown.extension.list.indentationSize": "inherit",
+        "markdown.extension.toc.levels": "1..6",
         "redhat.telemetry.enabled": false,
+        "rewrap.autoWrap.enabled": true,
         "telemetry.feedback.enabled": false,
         "telemetry.telemetryLevel": "off",
         "vale.enableSpellcheck": true,
         "vscode.env.isTelemetryEnabled": false,
+        "vsicons.dontShowNewVersionMessage": true,
         "workbench.iconTheme": "vscode-icons",
-        "editor.rulers": [
-          80,
-          160
-        ],
-        "yaml.customTags": [
-          "!vault scalar"
-        ]
+        "yaml.customTags": ["!vault scalar"]
       }
     }
   },

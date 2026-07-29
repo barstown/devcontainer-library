@@ -10,9 +10,9 @@ PKG_MGR=apt
 # List of packages to install
 PACKAGES=(
     bat
+    bind9-dnsutils
     btop
     curl
-    dnsutils
     fd-find
     fping
     git
@@ -22,10 +22,10 @@ PACKAGES=(
     ncat
     ncdu
     nmap
-    python3
     rsync
+    sshpass
     sudo
-    tldr
+    tealdeer
     unzip
     vim
     wget

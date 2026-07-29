@@ -5,8 +5,8 @@ if ! command -v mise >/dev/null 2>&1; then
   exit 0
 fi
 
-if [ -f "mise.toml" ]; then
-  mise trust
+if [ -f "${PROJECT_HOME}/.mise.toml" ]; then
+  mise trust ${PROJECT_HOME}/.mise.toml -y
   mise install
 fi
 

@@ -2,11 +2,11 @@
 set -e  # Exit immediately if a command exits with a non-zero status
 
 # Define the paths to the requirement files and installation directories
-COLLECTIONS_REQUIREMENTS="${PROJECT_HOME}/collections/requirements.yml"
-ROLES_REQUIREMENTS="${PROJECT_HOME}/roles/requirements.yml"
 COLLECTIONS_PATH="${PROJECT_HOME}/collections"
 ROLES_PATH="${PROJECT_HOME}/roles"
-COLLECTIONS_DIR="${PROJECT_HOME}/collections/ansible_collections"
+COLLECTIONS_REQUIREMENTS="${COLLECTIONS_PATH}/requirements.yml"
+ROLES_REQUIREMENTS="${ROLES_PATH}/requirements.yml"
+COLLECTIONS_DIR="${COLLECTIONS_PATH}/ansible_collections"
 
 # Remove the ansible_collections directory if it exists
 if [[ -d "$COLLECTIONS_DIR" ]]; then
