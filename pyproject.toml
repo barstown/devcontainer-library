@@ -11,5 +11,5 @@ dependencies = [
     "pyVim==3.0.3",
     "pyvmomi==9.1.0.0",
     "pywinrm==0.5.0",
-    "uv==0.12.3"
+    "uv==0.12.4"
 ]
